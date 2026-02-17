@@ -33,6 +33,10 @@ Throughout the course, I focus on:
 
 The goal is not just to build models, but to **ask the right economic questions of the data**.
 
+### Beyond p < 0.05: Return-Aware Experimentation
+
+While academic hypothesis testing defaults to p < 0.05, industry leaders like Netflix recognize that **decision thresholds are business parameters, not scientific conventions**. Return-Aware Experimentation adjusts significance levels based on the expected value of a decision—if the upside of a feature rollout vastly exceeds the cost of a false positive, the optimal threshold may be p < 0.15. Conversely, critical safety decisions may warrant p < 0.01. This lab introduced me to this distinction: statistical significance tells us whether an effect exists, but *business significance* determines whether we should act on it.
+
 ---
 
 ## 🧠 Key Skills Demonstrated
