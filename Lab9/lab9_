@@ -1,0 +1,42 @@
+# %%
+import pandas as pd
+import numpy as np
+from pathlib import Path
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import NearestNeighbors
+
+# Load your dataset here (ensure lalonde.csv is uploaded to Colab or linked)
+df = pd.read_csv(Path(__file__).parent.parent / 'Lab8' / 'lalonde.csv')
+
+# %%
+# Naive Comparison
+naive_diff = 100
+print(f"Naive Difference in Means: ${naive_diff:,.2f}")
+# Expected Result: -$635.03
+# %%
+# Define covariates
+X = df[['age', 'educ', 'black', 'hispan', 'married', 'nodegree', 're75', 're78']]
+y = df['treat']
+
+# Fit Propensity Model
+logit = LogisticRegression(solver='liblinear')
+logit.fit(X, y)
+
+# Generate Scores
+df['pscore'] = logit.predict_proba(X)[:, 1]
+# %%
+from sklearn.neighbors import NearestNeighbors
+
+# Separate groups
+treated = df[df.treat==1]
+control = df[df.treat==0]
+
+# Fit NN on Control scores
+nbrs = 
+
+# Find matches for Treated scores
+distances, indices = nbrs.kneighbors(treated[['pscore']])
+matched_control = control.iloc[indices.flatten()]
+
+# Construct Matched DataFrame
+matched_df = pd.concat([treated, matched_control])
