@@ -8,7 +8,7 @@ import category_encoders as ce
 
 # Step 1: Ingestion 
 df = pd.read_csv(Path(__file__).parent.parent / 'Data' / 'messy_hr_economics.csv')
-
+df.info()
 # %%
 # Step 2: Visual Forensics
 msno.matrix(df, figsize=(12, 6), sparkline=False)
