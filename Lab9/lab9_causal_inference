@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import NearestNeighbors
 
 # Load your dataset here (ensure lalonde.csv is uploaded to Colab or linked)
-df = pd.read_csv(Path(__file__).parent.parent / 'Lab8' / 'lalonde.csv')
+df = pd.read_csv(Path(__file__).parent.parent / 'Data' / 'lalonde.csv')
 
 # %%
 # Naive Comparison

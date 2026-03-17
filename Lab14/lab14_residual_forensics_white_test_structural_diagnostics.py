@@ -1,4 +1,4 @@
-#%% md
+# %% [markdown]
 # ## Step 1: Environment Initialization and the Baseline Illusion
 # Import all required analytical libraries and load the synthetic Nvidia AI Capex dataset.
 # Construct a naive baseline OLS regression predicting AI Software Revenue.
@@ -38,7 +38,7 @@ plt.xlabel('Fitted Values (Predicted AI Revenue)')
 plt.ylabel('Residual Errors')
 plt.show()
 
-#%% md
+# %% [markdown]
 # ## Step 3: Formalizing the Diagnosis (The White Test)
 # Visual forensics must be corroborated by rigorous mathematical testing.
 # Execute the White Test by passing the model's residuals and the model's exact design matrix
@@ -54,7 +54,7 @@ labels = ['LM Statistic', 'LM-Test p-value', 'F-Statistic', 'F-Test p-value']
 print("\n--- WHITE TEST RESULTS ---")
 print(dict(zip(labels, white_test_results)))
 
-#%% md
+# %% [markdown]
 # ## Step 4: Diagnosing Multicollinearity (Variance Inflation Factor)
 # Construct a Python for-loop to iterate through the columns of your design matrix
 # and calculate the VIF for every explanatory variable to detect if redundant data
@@ -69,7 +69,7 @@ for i in range(1, exog_matrix.shape[1]):
     vif = variance_inflation_factor(exog_matrix, i)
     print(f"VIF for variable {i}: {vif:.2f}")
 
-#%% md
+# %% [markdown]
 # ## Step 5: The Mathematical Correction (HC3 Standard Errors)
 # Re-fit the exact same OLS formula from Step 1, but this time apply the
 # Heteroscedasticity-Consistent (HC3) robust matrix correction to rescue the model
@@ -82,7 +82,7 @@ robust_model = smf.ols(formula, data=df).fit(cov_type="HC3")
 print("\n--- ROBUST OLS MODEL (HC3) ---")
 print(robust_model.summary())
 
-#%% md
+# %% [markdown]
 # ## Step 6: Interactive Diagnostic Dashboard
 # Create interactive visualizations for model comparison, heteroscedasticity diagnostics,
 # multicollinearity analysis (VIF), and residual exploration.

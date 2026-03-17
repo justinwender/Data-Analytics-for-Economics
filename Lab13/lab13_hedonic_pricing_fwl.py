@@ -9,7 +9,8 @@ from pathlib import Path
 # Import your analytical libraries and load the dataset directly into a pandas DataFrame. Run a naive, simple bivariate regression predicting Sale_Price strictly using Property_Age. Locate the coefficient for Property_Age and observe its sign to determine what it incorrectly implies about aging homes.
 
 #%%
-df = pd.read_csv(Path(__file__).parent.parent / 'Data' / 'Zillow_California_2026_Hedonic.csv')
+df = pd.read_csv(Path(__file__).parent.parent / 'Data' /'Zillow_California_2026_Hedonic.csv')
+
 # %%
 naive_model = smf.ols('Sale_Price ~ Property_Age', data=df).fit()
 print(naive_model.summary())
