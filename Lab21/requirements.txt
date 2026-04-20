@@ -1,0 +1,8 @@
+pandas
+numpy
+statsmodels
+pmdarima
+arch
+fredapi
+yfinance
+matplotlib
